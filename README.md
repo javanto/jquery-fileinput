@@ -33,6 +33,7 @@ JavaScript magic! Wrapping the file input on a div, appending another element to
 **replacement** A selector for the element intended to replace the file input. The element is removed from the DOM immediately.
 #### CSS Pseudo^2 Classes
 To mimic the behavior of the [CSS pseudo-classes](http://www.w3schools.com/css/css_pseudo_classes.asp) we use regular classes instead.
+
 * **.hover** Replacement for :hover
 * **.focus** Replacement for :focus
 * **.active** Replacement for :active
