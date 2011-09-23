@@ -6,6 +6,7 @@ You can't style HTML file inputs. They'll always look fugly.
 
 ## The Solution
 JavaScript magic! Wrapping the file input on a div, adding the replacement element to provide the visuals and then making the original input invisible. The clicks to the replacement element are propagated to the original input.
+
 ### Let Me Show You How
 
     ...
@@ -29,11 +30,20 @@ JavaScript magic! Wrapping the file input on a div, adding the replacement eleme
     </div>
 
 ### The API
+
 #### .fileinput([replacement])
+
 **replacement** A selector for the element intended to replace the file input. The element is removed from the DOM immediately.
 
 ### [The Demo](http://jsfiddle.net/hleinone/UF4nr/)
 
 ## The Requirements
+
 * [jQuery](http://jquery.com/) 1.4+
 
+### Tested on
+
+* Firefox 6.0.2
+* Chrome 14.0.835.186
+* Safari 5.1 (6534.50)
+* Internet Explorer 8.0.7601.17514
