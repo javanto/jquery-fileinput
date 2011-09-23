@@ -20,7 +20,6 @@
             element.attr("tabindex", "-1").css({"font-size": "100px", height: "100%", filter: "alpha(opacity=0)", "-moz-opacity": 0, opacity: 0, position: "absolute", right: 0, top: 0, "z-index": -1});
             element.before(replacementHtml);
             var ua = $.browser;
-            alert(ua.version);
             if (ua.opera || (ua.mozilla && ua.version < "2.0")) {
                 element.css("z-index", "auto");
                 element.prev(".fileinput").css("z-index", -1);
