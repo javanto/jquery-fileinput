@@ -5,7 +5,7 @@ Stylable &lt;input type="file"&gt; for jQuery.
 You can't style HTML file inputs. They'll always look fugly.
 
 ## The Solution
-JavaScript magic! Wrapping the file input on a div, appending another element to provide the visuals and then making the original input invisible. Kinda, like described [here](http://www.viget.com/inspire/custom-file-inputs-with-a-bit-of-jquery/).
+JavaScript magic! Wrapping the file input on a div, adding the replacement element to provide the visuals and then making the original input invisible. The clicks to the replacement element are propagated to the original input.
 ### Let Me Show You How
 
     ...
@@ -24,19 +24,13 @@ JavaScript magic! Wrapping the file input on a div, appending another element to
 ...will end up as...
 
     <div class="fileinput-wrapper" style="position: relative; display: inline-block; overflow: hidden;">
-      <input type="file" name="foo" style="font-size: 100px; height: 100%; filter: alpha(opacity=1); -moz-opacity: 0.01; opacity: 0.01; position: absolute; right: 0; top: 0;">
-      <button class="fileinput" style="display: inline-block;" tabindex="-1">Browse...</button>
+      <button class="fileinput">Browse...</button>
+      <input type="file" name="foo" tabindex="-1" style="font-size: 100px; height: 100%; opacity: 0; position: absolute; right: 0px; top: 0px; z-index: -1;">
     </div>
 
 ### The API
 #### .fileinput([replacement])
 **replacement** A selector for the element intended to replace the file input. The element is removed from the DOM immediately.
-#### CSS Pseudo^2 Classes
-To mimic the behavior of the [CSS pseudo-classes](http://www.w3schools.com/css/css_pseudo_classes.asp) we use regular classes instead.
-
-* **.hover** Replacement for :hover
-* **.focus** Replacement for :focus
-* **.active** Replacement for :active
 
 ### [The Demo](http://jsfiddle.net/hleinone/UF4nr/)
 
