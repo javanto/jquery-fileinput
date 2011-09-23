@@ -19,9 +19,29 @@
             element.wrap("<div class=\"fileinput-wrapper\" style=\"position: relative; display: inline-block; overflow: hidden;\" />");
             element.attr("tabindex", "-1").css({"font-size": "100px", height: "100%", filter: "alpha(opacity=0)", "-moz-opacity": 0, opacity: 0, position: "absolute", right: 0, top: 0, "z-index": -1});
             element.before(replacementHtml);
-            element.prev(".fileinput").click(function() {
-                element.click();
-            });
+            if ($.browser.opera) {
+                element.css("z-index", "auto");
+                element.prev(".fileinput").css("z-index", -1);
+                element.removeAttr("tabindex");
+                element.prev(".fileinput").attr("tabindex", "-1");
+                element.hover(function() {
+                    $(this).prev(".fileinput").addClass("hover");
+                }, function() {
+                    $(this).prev(".fileinput").removeClass("hover");
+                }).focusin(function() {
+                    $(this).prev(".fileinput").addClass("focus");
+                }).focusout(function() {
+                    $(this).prev(".fileinput").removeClass("focus");
+                }).mousedown(function() {
+                    $(this).prev(".fileinput").addClass("active");
+                }).mouseup(function() {
+                    $(this).prev(".fileinput").removeClass("active");
+                });
+            } else {
+                element.prev(".fileinput").click(function() {
+                    element.click();
+                });
+            }
         });
         return selector;
     };

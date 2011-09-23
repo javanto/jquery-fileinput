@@ -35,6 +35,14 @@ JavaScript magic! Wrapping the file input on a div, adding the replacement eleme
 
 **replacement** A selector for the element intended to replace the file input. The element is removed from the DOM immediately.
 
+#### The Notes
+
+With **Opera** we can't support the [native CSS pseudo classes](http://www.w3schools.com/css/css_pseudo_classes.asp), so instead of them we'll provide real classes for Opera.
+
+* **.hover** for :hover
+* **.focus** for :focus
+* **.active** for :active
+
 ### [The Demo](http://jsfiddle.net/hleinone/UF4nr/)
 
 ## The Requirements
@@ -47,3 +55,4 @@ JavaScript magic! Wrapping the file input on a div, adding the replacement eleme
 * Chrome 14.0.835.186
 * Safari 5.1 (6534.50)
 * Internet Explorer 8.0.7601.17514
+* Opera 10.51
