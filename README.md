@@ -37,7 +37,7 @@ JavaScript magic! Wrapping the file input on a div, adding the replacement eleme
 
 #### The Notes
 
-With **Opera** we can't support the [native CSS pseudo classes](http://www.w3schools.com/css/css_pseudo_classes.asp), so instead of them we'll provide real classes for Opera.
+With **Opera** (and **Firefox** versions before 4) we can't support the [native CSS pseudo classes](http://www.w3schools.com/css/css_pseudo_classes.asp). Instead we'll provide them real classes.
 
 * **.hover** for :hover
 * **.focus** for :focus
