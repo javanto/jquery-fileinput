@@ -5,7 +5,7 @@ Stylable &lt;input type="file"&gt; for jQuery.
 You can't style HTML file inputs. They'll always look fugly.
 
 ## The Solution
-JavaScript magic! Wrapping the file input on a div, adding the replacement element to provide the visuals and then making the original input invisible. The clicks to the replacement element are propagated to the original input.
+JavaScript magic! Wrapping the file input on a div, adding the replacement element to provide the visuals and then making the original input invisible. The clicks to the replacement element are propagated to the original input on the browsers that support it, otherwise a transparent file input is placed on top of the replacement.
 
 ### Let Me Show You How
 
@@ -21,13 +21,6 @@ JavaScript magic! Wrapping the file input on a div, adding the replacement eleme
     </script>
     ...
     <input type="file" name="foo" />
-
-...will end up as...
-
-    <div class="fileinput-wrapper" style="position: relative; display: inline-block; overflow: hidden;">
-      <button class="fileinput">Browse...</button>
-      <input type="file" name="foo" tabindex="-1" style="font-size: 100px; height: 100%; opacity: 0; position: absolute; right: 0px; top: 0px; z-index: -1;">
-    </div>
 
 ### The API
 
