@@ -22,13 +22,13 @@ JavaScript magic! Wrapping the file input on a div, adding the replacement eleme
     ...
     <input type="file" name="foo" />
 
-### The API
+### API
 
 #### .fileinput([replacement])
 
 **replacement** A selector for the element intended to replace the file input. The element is removed from the DOM immediately.
 
-#### The Notes
+#### Notes
 
 With **Opera** (and **Firefox** versions before 4) we can't support the [native CSS pseudo classes](http://www.w3schools.com/css/css_pseudo_classes.asp). Instead we'll provide them real classes.
 
@@ -36,9 +36,9 @@ With **Opera** (and **Firefox** versions before 4) we can't support the [native 
 * **.focus** for :focus
 * **.active** for :active
 
-### [The Demo](http://jsfiddle.net/hleinone/UF4nr/)
+### [Demo](http://jsfiddle.net/hleinone/UF4nr/)
 
-## The Requirements
+## Requirements
 
 * [jQuery](http://jquery.com/) 1.4+
 
@@ -49,3 +49,14 @@ With **Opera** (and **Firefox** versions before 4) we can't support the [native 
 * Safari 5.1 (6534.50)
 * Internet Explorer 8.0.7601.17514
 * Opera 10.51
+
+## Developing
+
+1. Fork
+1. Clone your fork
+1. Make your modifications
+1. Compile using [`jake`](https://github.com/mde/jake)
+1. Test
+1. Create pull request
+1. ???
+1. Profit!
