@@ -42,6 +42,9 @@
                 element.prev(".fileinput").click(function() {
                     element.click();
                 });
+                element.prev(":submit.fileinput").click(function(event) {
+                    event.preventDefault();
+                });
             }
         });
         return selector;
