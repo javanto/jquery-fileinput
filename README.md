@@ -1,5 +1,5 @@
 # jQuery Fileinput Plugin
-Stylable &lt;input type="file"&gt; for jQuery.
+Styleable &lt;input type="file"&gt; for jQuery.
 
 ## The Problem
 You can't style HTML file inputs. They'll always look [fugly](http://www.urbandictionary.com/define.php?term=fugly).
