@@ -1,7 +1,7 @@
 /**
- * {{= pkg.name}} v{{= pkg.version}}
+ * jQuery Fileinput Plugin v2.0
  *
- * Copyright 2011, {{= pkg.author}}
+ * Copyright 2011, Hannu Leinonen <hleinone@gmail.com>
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
