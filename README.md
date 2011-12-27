@@ -44,7 +44,7 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
-      $("input[type=file]").fileinput($("button"));
+      $("input[type=file]").fileinput($("button").remove());
     });
     //]]>
     </script>
