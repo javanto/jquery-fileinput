@@ -1,13 +1,11 @@
 {
-  "name": "jQuery Fileinput Plugin",
-  "description": "Stylable <input type=\"file\"> for jQuery",
+  "name": "fileinput",
   "version": "2.0",
-  "author": "Hannu Leinonen <hleinone@gmail.com>",
-  "homepage": "http://github.com/hleinone/jquery-fileinput",
-  "keywords": ["jquery", "input", "file", "javascript", "style", "css", "fileinput"],
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/hleinone/jquery-fileinput.git"
+  "title": "jQuery Fileinput Plugin",
+  "author": {
+    "name": "Hannu Leinonen",
+    "email": "hleinone@gmail.com",
+    "url": "http://javanto.com"
   },
   "licences": [
     {
@@ -18,5 +16,26 @@
       "type": "GPL",
       "url": "http://www.gnu.org/licenses/gpl.html"
     }
+  ],
+  "dependencies": {
+    "jquery": ">=1.4"
+  },
+  "description": "Stylable <input type=\"file\"> for jQuery",
+  "keywords": [
+    "jquery", 
+    "input", 
+    "file", 
+    "javascript", 
+    "style", 
+    "css", 
+    "fileinput"
+  ],
+  "homepage": "http://github.com/hleinone/jquery-fileinput",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/hleinone/jquery-fileinput.git"
+  },
+  "files": [
+    "jquery.fileinput.js"
   ]
 }
