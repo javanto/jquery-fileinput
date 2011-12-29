@@ -1,7 +1,7 @@
 /**
- * {{= pkg.title}} v{{= pkg.version}}
+ * {{= it.title}} v{{= it.version}}
  *
- * Copyright 2011, {{= pkg.author.name}} <{{= pkg.author.email}}>
+ * Copyright 2011, {{= it.author.name}} <{{= it.author.email}}>
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html

@@ -36,6 +36,11 @@
     "url": "http://github.com/hleinone/jquery-fileinput.git"
   },
   "files": [
-    "jquery.fileinput.js"
-  ]
+    "dist/jquery.fileinput.js", 
+    "dist/jquery.fileinput.min.js"
+  ],
+  "build": {
+    "directory": "dist",
+    "final_name": "jquery.{{= it.name}}"
+  }
 }
