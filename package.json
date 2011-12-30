@@ -33,7 +33,7 @@
   "homepage": "http://github.com/hleinone/jquery-fileinput",
   "repository": {
     "type": "git",
-    "url": "http://github.com/hleinone/jquery-fileinput.git"
+    "url": "https://github.com/hleinone/jquery-fileinput.git"
   },
   "files": [
     "dist/jquery.fileinput.js", 
@@ -41,6 +41,7 @@
   ],
   "build": {
     "directory": "dist",
-    "final_name": "jquery.{{= it.name}}"
+    "final_name": "jquery.{{= it.name}}",
+    "unique_name": "jquery.{{= it.name}}-{{= it.version}}"
   }
 }
