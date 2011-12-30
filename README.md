@@ -12,7 +12,7 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
 #### Trivial
     ...
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://github.com/hleinone/jquery-fileinput/raw/master/jquery.fileinput.js"></script>
+    <script type="text/javascript" src="http://cloud.github.com/downloads/hleinone/jquery-fileinput/jquery.fileinput-2.0.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -26,7 +26,7 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
 #### With replacement HTML
     ...
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://github.com/hleinone/jquery-fileinput/raw/master/jquery.fileinput.js"></script>
+    <script type="text/javascript" src="http://cloud.github.com/downloads/hleinone/jquery-fileinput/jquery.fileinput-2.0.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -40,7 +40,7 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
 #### With replacement jQuery selector
     ...
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://github.com/hleinone/jquery-fileinput/raw/master/jquery.fileinput.js"></script>
+    <script type="text/javascript" src="http://cloud.github.com/downloads/hleinone/jquery-fileinput/jquery.fileinput-2.0.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
