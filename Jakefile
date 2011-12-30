@@ -53,7 +53,7 @@ task("publish", ["default"], function (params) {
       });
     });
   });
-}, false);
+});
 
 function package(callback) {
   var fs = require("node-fs");
