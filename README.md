@@ -87,8 +87,9 @@ With **Opera** (and **Firefox** versions before 4) we can't support the [native 
 1. Make your modifications
 1. Commit
 1. Make sure you have [node](http://nodejs.org/) and [npm](http://npmjs.org/) installed
-1. Install the required dependencies: `npm install jake node-fs dot uglify-js gits read needle`
-1. Compile, minify and publish with [jake](https://github.com/mde/jake): `jake publish` 
+1. Install the required dependencies: `npm install node-fs dot uglify-js gits read needle`
+1. Install [jake](https://github.com/mde/jake): `npm install jake -g`
+1. Compile, minify and publish: `jake publish` 
 1. Test
 1. Create pull request
 1. ???
