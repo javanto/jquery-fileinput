@@ -30,10 +30,10 @@
     "css", 
     "fileinput"
   ],
-  "homepage": "http://github.com/hleinone/jquery-fileinput",
+  "homepage": "http://github.com/javanto/jquery-fileinput",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hleinone/jquery-fileinput.git"
+    "url": "https://github.com/javanto/jquery-fileinput.git"
   },
   "files": [
     "dist/jquery.fileinput.js", 
