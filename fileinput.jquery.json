@@ -1,13 +1,13 @@
 {
   "name": "fileinput",
-  "version": "2.0",
+  "version": "3.0.0",
   "title": "jQuery Fileinput Plugin",
   "author": {
     "name": "Hannu Leinonen",
     "email": "hleinone@gmail.com",
     "url": "http://javanto.com"
   },
-  "licences": [
+  "licenses": [
     {
       "type": "MIT",
       "url": "http://www.opensource.org/licenses/mit-license.php"
@@ -22,26 +22,23 @@
   },
   "description": "Stylable <input type=\"file\"> for jQuery",
   "keywords": [
-    "jquery", 
-    "input", 
-    "file", 
-    "javascript", 
-    "style", 
-    "css", 
+    "jquery",
+    "input",
+    "file",
+    "javascript",
+    "style",
+    "css",
     "fileinput"
   ],
   "homepage": "http://github.com/javanto/jquery-fileinput",
+  "demo": "http://jsfiddle.net/hleinone/UF4nr/",
+  "bugs": "https://github.com/javanto/jquery-fileinput/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/javanto/jquery-fileinput.git"
   },
-  "files": [
-    "dist/jquery.fileinput.js", 
-    "dist/jquery.fileinput.min.js"
-  ],
   "build": {
     "directory": "dist",
-    "final_name": "jquery.{{= it.name}}",
-    "unique_name": "jquery.{{= it.name}}-{{= it.version}}"
+    "final_name": "jquery.{{= it.name}}"
   }
 }

@@ -1,18 +1,19 @@
 # jQuery Fileinput Plugin
-Styleable &lt;input type="file"&gt; for jQuery.
 
-## The Problem
-You can't style HTML file inputs. They'll always look [fugly](http://www.urbandictionary.com/define.php?term=fugly).
+Normally, you can't use CSS to style HTML file inputs. They'll always look [fugly](http://www.urbandictionary.com/define.php?term=fugly). With jQuery Fileinput you can!
 
-## The Solution
-JavaScript magic! You can ignore the following technical jargon unless you're interested in the implementation details. It's all done by wrapping the file input on a div, adding a replacement element to provide the visuals and then making the original input invisible. Clicks to the replacement element are propagated to the original input on the browsers that support it, otherwise a transparent file input is placed on top of the replacement.
+By wrapping the file input on a div, adding a replacement element to provide the visuals and then making the original input invisible. Clicks to the replacement element are propagated to the original input on the browsers that support it, otherwise a transparent file input is placed on top of the replacement.
 
-### Let Me Show You How
+## Downloads
+* [Minified](https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js)
+* [Full version](https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js)
 
-#### Trivial
+## Examples
+
+### Trivial
     ...
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://cloud.github.com/downloads/hleinone/jquery-fileinput/jquery.fileinput-2.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -23,10 +24,10 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
     ...
     <input type="file" name="foo" />
 
-#### With replacement HTML
+### With replacement HTML
     ...
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://cloud.github.com/downloads/hleinone/jquery-fileinput/jquery.fileinput-2.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -37,10 +38,10 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
     ...
     <input type="file" name="foo" />
 
-#### With replacement jQuery selector
+### With replacement jQuery selector
     ...
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://cloud.github.com/downloads/hleinone/jquery-fileinput/jquery.fileinput-2.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -52,13 +53,13 @@ JavaScript magic! You can ignore the following technical jargon unless you're in
     <input type="file" name="foo" />
     <button>Browse...</button>
 
-### API
+## API
 
-#### .fileinput([replacement])
+### .fileinput([replacement])
 
-**replacement** Plain HTML, or a jQuery selector for the element intended to replace the file input.
+* **replacement** Plain HTML, or a jQuery selector for the element intended to replace the file input.
 
-#### Notes
+### Notes
 
 With **Opera** (and **Firefox** versions before 4) we can't support the [native CSS pseudo classes](http://www.w3schools.com/css/css_pseudo_classes.asp). Instead we'll provide them equivalent "pseudo pseudo classes" which are actually just normal CSS classes.
 
@@ -66,31 +67,41 @@ With **Opera** (and **Firefox** versions before 4) we can't support the [native 
 * **.focus** for :focus
 * **.active** for :active
 
-### [Demo](http://jsfiddle.net/hleinone/UF4nr/)
+## Demo
+
+At [jsFiddle](http://jsfiddle.net/hleinone/UF4nr/).
 
 ## Requirements
 
-* [jQuery](http://jquery.com/) 1.4+
+* [jQuery](http://jquery.com/)
+ * 1.4+
+
+## Brower support
 
 ### Tested on
 
-* Firefox 6.0.2
-* Chrome 14.0.835.186
-* Safari 5.1 (6534.50)
-* Internet Explorer 8.0.7601.17514
-* Opera 10.51
+* Chrome
+ * 24.0.1312.57 m
+* Chromium
+ * 24.0.1312.56
+* Firefox
+ * 18.0.2
+* Internet Explorer
+ * 10.0.9200.16466
+* Opera
+ * 12.14
+* Safari
+ * 5.1.7 (7534.57.2)
 
 ## Developing
 
 1. Fork
-1. Clone your fork
 1. Make your modifications
-1. Commit
 1. Make sure you have [node](http://nodejs.org/) and [npm](http://npmjs.org/) installed
-1. Install the required dependencies: `npm install node-fs dot uglify-js gits read needle`
+1. Install the dependencies required for the build: `npm install node-fs dot uglify-js gits`
 1. Install [jake](https://github.com/mde/jake): `npm install jake -g`
-1. Compile, minify and publish: `jake publish` 
+1. Compile and minify: `jake` 
 1. Test
-1. Create pull request
+1. Commit and create a pull request
 1. ???
 1. Profit!

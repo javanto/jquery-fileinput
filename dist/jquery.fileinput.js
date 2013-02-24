@@ -1,12 +1,22 @@
 /**
- * jQuery Fileinput Plugin v2.0
+ * jQuery Fileinput Plugin v3.0.0
  *
- * Copyright 2011, Hannu Leinonen <hleinone@gmail.com>
+ * Copyright 2013, Hannu Leinonen <hleinone@gmail.com>
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  */
 (function($) {
+    $.support.cssPseudoClasses = (function() {
+        var input = $("<input type='checkbox' checked/>").appendTo('body');
+        var style = $('<style type="text/css" />').appendTo('head');
+        style.text("input:checked {width: 200px; display: none}");
+        var support = input.css('width') == "200px";
+        input.remove();
+        style.remove();
+        return support;
+    })();
+
     $.fn.fileinput = function(replacement) {
         var selector = this;
         var replacementHtml = "<button class=\"fileinput\">Browse...</button>";
@@ -19,11 +29,10 @@
         selector.each(function() {
             var element = $(this);
             element.wrap("<div class=\"fileinput-wrapper\" style=\"position: relative; display: inline-block;\" />");
-            element.attr("tabindex", "-1").css({"font-size": "100px", height: "100%", filter: "alpha(opacity=0)", "-moz-opacity": 0, opacity: 0, position: "absolute", right: 0, top: 0, "z-index": -1});
+            element.attr("tabindex", "-1").css({height: "100%", width: "100%", filter: "alpha(opacity=0)", "-moz-opacity": 0, opacity: 0, position: "absolute", right: 0, top: 0, "z-index": -1});
             element.before(replacementHtml);
             element.prev().addClass("fileinput");
-            var ua = $.browser;
-            if (ua.opera || (ua.mozilla && ua.version < "2.0")) {
+            if (!$.support.cssPseudoClasses) {
                 element.css("z-index", "auto");
                 element.prev(".fileinput").css("z-index", -1);
                 element.removeAttr("tabindex");

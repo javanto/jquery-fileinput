@@ -2,8 +2,7 @@ desc("This is the default task.");
 task("default", function (params) {
   var fs = require("node-fs");
   var dot = require("dot");
-  var parser = require("uglify-js").parser;
-  var uglify = require("uglify-js").uglify;
+  var uglify = require("uglify-js");
 
   package(function(pkg) {
     console.log("Building " + pkg.title + " " + pkg.version);
@@ -16,10 +15,15 @@ task("default", function (params) {
         define: /\{\{##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\}\}/g, //compile time defs
         strip: false,
         varname: "it"})(pkg);
-      var ast = parser.parse(cmp);
-      ast = uglify.ast_mangle(ast);
-      ast = uglify.ast_squeeze(ast);
-      var min = uglify.gen_code(ast);
+      var ast = uglify.parse(cmp);
+      ast.figure_out_scope();
+      ast = ast.transform(uglify.Compressor());
+      // need to figure out scope again so mangler works optimally
+      ast.figure_out_scope();
+      ast.compute_char_frequency();
+      ast.mangle_names();
+
+      var min = ast.print_to_string({ comments: true });
       var buildDirectory = pkg.build.directory? dot.template(pkg.build.directory)(pkg) : "dist";
       try {
         fs.rmdirSync("./" + buildDirectory);
@@ -40,16 +44,9 @@ task("publish", ["default"], function (params) {
 
   package(function(pkg) {
     var tagName = pkg.version;
-    gits.git(".", ["tag", "-a", "-m", "Publishing new version", "v" + tagName], function() {
-      gits.git(".", ["push", "--tags"], function() {
+    gits.git(".", ["tag", "-a", "-m", "Publishing new version", tagName], function() {
+      gits.git(".", ["push", "origin", "--tags"], function() {
         console.log("Created remote tag " + tagName);
-        upload(function(error, result) {
-          if (error) {
-            console.log(error);
-            return;
-          }
-          console.log("Successfully uploaded to GitHub");
-        });
       });
     });
   });
@@ -58,79 +55,8 @@ task("publish", ["default"], function (params) {
 function package(callback) {
   var fs = require("node-fs");
 
-  fs.readFile("./package.json", "utf8", function(err, data) {
+  fs.readFile("./fileinput.jquery.json", "utf8", function(err, data) {
     if (err) throw err;
     callback(JSON.parse(data));
   });
-}
-
-function upload(callback) {
-  var fs = require("node-fs");
-  var dot = require("dot");
-  var read = require("read");
-
-  package(function(pkg) {
-    if (pkg.repository.url.match("https?://github.com/.+/.+.git")) {
-      read({ prompt : "Your GitHub username: " }, function (error, username) {
-        read({ prompt : "Your GitHub password: ", silent : true }, function (error, password) {
-          process.stdin.destroy();
-          var path = pkg.repository.url.substring(0, pkg.repository.url.length - 4);
-          path = "https://api.github.com/repos/" + path.substring(path.indexOf("github.com") + 11);
-          var buildUniqueName = pkg.build.unique_name ? dot.template(pkg.build.unique_name)(pkg) : pkg.name + "-" + pkg.version;
-          var buildDirectory = pkg.build.directory? dot.template(pkg.build.directory)(pkg) : "dist";
-          var buildFinalName = pkg.build.final_name ? dot.template(pkg.build.final_name)(pkg) : pkg.name + "-" + pkg.version;
-
-          post(path, "./" + buildDirectory + "/" + buildFinalName + ".js", buildUniqueName + ".js", {username: username, password: password}, callback);
-          post(path, "./" + buildDirectory + "/" + buildFinalName + ".min.js", buildUniqueName + ".min.js", {username: username, password: password}, callback);
-        });
-      });
-    }
-  });
-
-  function post(path, file, fileName, options, callback) {
-    var needle = require("needle");
-
-    needle.post(path + "/downloads", JSON.stringify({ 
-      name: fileName, 
-      size: fs.statSync(file).size, 
-      content_type: "application/javascript" 
-    }), {
-      username: options.username, 
-      password: options.password
-    }, function(error, response, body) {
-      if (error) {
-        callback(error, null);
-        return;
-      }
-      if (response.statusCode !== 201) {
-        callback(body.message, null);
-        return;
-      }
-
-      needle.post(body.s3_url, {
-        key: body.path,
-        acl: body.acl,
-        success_action_status: 201,
-        Filename: body.name,
-        AWSAccessKeyId: body.accesskeyid,
-        Policy: body.policy,
-        Signature: body.signature,
-        "Content-Type": body.mime_type,
-        file: { 
-          file: file, 
-          content_type: "application/javascript"
-        }
-      }, {multipart: true}, function(error, response, body) {
-        if (error) {
-          callback(error, null);
-          return;
-        }
-        if (response.statusCode !== 201) {
-          callback(body.message, null);
-          return;
-        }
-        callback(null, body);
-      });
-    });
-  }
 }
