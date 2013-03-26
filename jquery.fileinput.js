@@ -35,14 +35,13 @@
             element.wrap("<div class=\"fileinput-wrapper\" style=\"overflow:hidden; position: relative; display: inline-block;\" />");
 
             element.parent().mousemove(function(e) {
-                var offL, offR, inpStart, el = $(this);
+                var offL, offR, el = $(this);
 
                 offL = el.offset().left;
                 offT = el.offset().top;
-                aaa = el.find("input[type=file]").width();
 
                 el.find("input").css({
-                    "left":e.pageX - offL - aaa + 30,
+                    "left":e.pageX - offL - el.find("input[type=file]").width() + 30,
                     "top":e.pageY - offT - 10
                 })
             });
