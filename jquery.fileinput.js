@@ -41,7 +41,7 @@
                 offT = el.offset().top;
                 aaa = el.find("input[type=file]").width();
 
-                $(this).find("input").css({
+                el.find("input").css({
                     "left":e.pageX - offL - aaa + 30,
                     "top":e.pageY - offT - 10
                 })
