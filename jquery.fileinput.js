@@ -8,13 +8,17 @@
  */
 (function($) {
     $.support.cssPseudoClasses = (function() {
-        var input = $("<input type='checkbox' checked/>").appendTo('body');
-        var style = $('<style type="text/css" />').appendTo('head');
-        style.text("input:checked {width: 200px; display: none}");
-        var support = input.css('width') == "200px";
-        input.remove();
-        style.remove();
-        return support;
+        try {
+            var input = $("<input type='checkbox' checked/>").appendTo('body');
+            var style = $('<style type="text/css" />').appendTo('head');
+            style.text("input:checked {width: 200px; display: none}");
+            var support = input.css('width') == "200px";
+            input.remove();
+            style.remove();
+            return support;
+        } catch (e) {
+            return false;
+        }
     })();
 
     $.fn.fileinput = function(replacement) {
