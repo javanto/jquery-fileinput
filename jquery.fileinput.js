@@ -32,12 +32,25 @@
         }
         selector.each(function() {
             var element = $(this);
-            element.wrap("<div class=\"fileinput-wrapper\" style=\"position: relative; display: inline-block;\" />");
-            element.attr("tabindex", "-1").css({height: "100%", width: "100%", filter: "alpha(opacity=0)", "-moz-opacity": 0, opacity: 0, position: "absolute", right: 0, top: 0, "z-index": -1});
+            element.wrap("<div class=\"fileinput-wrapper\" style=\"overflow:hidden; position: relative; display: inline-block;\" />");
+
+            element.parent().mousemove(function(e) {
+                var offL, offR, el = $(this);
+
+                offL = el.offset().left;
+                offT = el.offset().top;
+
+                el.find("input").css({
+                    "left":e.pageX - offL - el.find("input[type=file]").width() + 30,
+                    "top":e.pageY - offT - 10
+                })
+            });
+
+            element.attr("tabindex", "-1").css({filter: "alpha(opacity=0)", "-moz-opacity": 0, opacity: 0, position: "absolute", "z-index": -1});
             element.before(replacementHtml);
             element.prev().addClass("fileinput");
             if (!$.support.cssPseudoClasses) {
-                element.css("z-index", "auto");
+                element.css({"z-index":"auto", "cursor":"pointer"});
                 element.prev(".fileinput").css("z-index", -1);
                 element.removeAttr("tabindex");
                 element.prev(".fileinput").attr("tabindex", "-1");
