@@ -1,5 +1,5 @@
 /**
- * jQuery Fileinput Plugin v3.0.0
+ * jQuery Fileinput Plugin v3.1.0
  *
  * Copyright 2013, Hannu Leinonen <hleinone@gmail.com>
  * Dual licensed under the MIT and GPL licenses:
@@ -35,7 +35,7 @@
             element.wrap("<div class=\"fileinput-wrapper\" style=\"overflow:hidden; position: relative; display: inline-block;\" />");
 
             element.parent().mousemove(function(e) {
-                var offL, offR, el = $(this);
+                var offL, offT, el = $(this);
 
                 offL = el.offset().left;
                 offT = el.offset().top;
