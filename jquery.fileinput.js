@@ -35,7 +35,7 @@
             element.wrap("<div class=\"fileinput-wrapper\" style=\"overflow:hidden; position: relative; display: inline-block;\" />");
 
             element.parent().mousemove(function(e) {
-                var offL, offR, el = $(this);
+                var offL, offT, el = $(this);
 
                 offL = el.offset().left;
                 offT = el.offset().top;
