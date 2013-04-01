@@ -5,15 +5,15 @@ Normally, you can't use CSS to style HTML file inputs. They'll always look [fugl
 By wrapping the file input on a div, adding a replacement element to provide the visuals and then making the original input invisible. Clicks to the replacement element are propagated to the original input on the browsers that support it, otherwise a transparent file input is placed on top of the replacement.
 
 ## Downloads
-* [Minified](https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js)
-* [Full version](https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js)
+* [Minified](https://raw.github.com/javanto/jquery-fileinput/v3.1.0/dist/jquery.fileinput.min.js)
+* [Full version](https://raw.github.com/javanto/jquery-fileinput/v3.1.0/dist/jquery.fileinput.min.js)
 
 ## Examples
 
 ### Trivial
     ...
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.1.0/dist/jquery.fileinput.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -27,7 +27,7 @@ By wrapping the file input on a div, adding a replacement element to provide the
 ### With replacement HTML
     ...
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.1.0/dist/jquery.fileinput.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
@@ -41,7 +41,7 @@ By wrapping the file input on a div, adding a replacement element to provide the
 ### With replacement jQuery selector
     ...
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.0.0/dist/jquery.fileinput.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/javanto/jquery-fileinput/v3.1.0/dist/jquery.fileinput.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
     $().ready(function() {
