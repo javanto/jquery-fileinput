@@ -45,7 +45,7 @@ task("publish", ["default"], function (params) {
   package(function(pkg) {
     var tagName = pkg.version;
     gits.git(".", ["tag", "-a", "-m", "Publishing new version", tagName], function() {
-      gits.git(".", ["push", "origin", "--tags"], function() {
+      gits.git(".", ["push", "upstream", "--tags"], function() {
         console.log("Created remote tag " + tagName);
       });
     });
