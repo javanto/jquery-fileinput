@@ -1,5 +1,5 @@
 /**
- * jQuery Fileinput Plugin v3.1.0
+ * jQuery Fileinput Plugin v3.2.0
  *
  * Copyright 2013, Hannu Leinonen <hleinone@gmail.com>
  * Dual licensed under the MIT and GPL licenses:
